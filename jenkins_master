@@ -15,7 +15,8 @@ pipeline {
             steps {
                 script {
                     data = readFile(file: 'Data.json')
-                    convert = new groovy.json.JsonSlurper().parseText(data)
+                    data_map = new groovy.json.JsonSlurper().parseText(data)
+                    convert = new HashMap<>(data_map)
                     println(convert)
                 }
                 echo 'Start Trigger to send name and age to slave'
