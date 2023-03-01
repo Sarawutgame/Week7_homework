@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     data = readFile(file: 'Data.txt')
-                    convert = data.readFile()
+                    convert = data.readLines()
                     print(convert.get(0))
                     print(convert.get(1))
                 }
