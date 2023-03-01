@@ -16,11 +16,11 @@ pipeline {
                 script {
                     data = readFile(file: 'Data.txt')
                     convert = data.readLines()
-                    print(convert.get(0))
-                    print(convert.get(1))
+                    data_name = convert.get(0)
+                    data_age = convert.get(1)
                 }
-                // echo 'Start Trigger to send name and age to slave'
-                // build job: 'slave_homework', parameters: [string(name: 'NAME', value: convert.NAME), string(name: 'Ages', value: convert.AGE)]
+                echo 'Start Trigger to send name and age to slave'
+                build job: 'slave_homework', parameters: [string(name: 'NAME', value: data_name), string(name: 'Ages', value: data_age)]
             }
         }
     }
