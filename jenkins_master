@@ -14,7 +14,7 @@ pipeline {
         stage('Tigger the Slave Jobs') {
             steps {
                 script {
-                    def data = readFile(file: 'Data.json')
+                    def data = readJSON file: 'Data.json'
                 //    def dataline = data.readLines()
                     println(data.getClass())
 
