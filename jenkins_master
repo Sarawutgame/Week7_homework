@@ -20,7 +20,7 @@ pipeline {
                    println(dataline.get(1))
                 }
                 echo 'Start Trigger to send name and age to slave'
-                build job: 'slave_homework', parameters: [string(name: 'NAME', value: dataline.get(0)), string(name: 'Ages', value: ataline.get(1))]
+                build job: 'slave_homework', parameters: [string(name: 'NAME', value: dataline.get(0)), string(name: 'Ages', value: dataline.get(1))]
             }
         }
     }
