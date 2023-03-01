@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         
-        stage('Welcome to master'){
+        stage('Welcome to master1'){
             steps{
                 echo 'Start Program HomeWork'
             }
