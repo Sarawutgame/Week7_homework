@@ -14,10 +14,10 @@ pipeline {
         stage('Tigger the Slave Homework Jobs') {
             steps {
                 script {
-                    def data = readFile(file: 'Data.json')
-                    def convert = new groovy.json.JsonSlurper().parseText(data)
-                    def in_name = convert.NAME
-                    def in_age = convert.AGE
+                    data = readFile(file: 'Data.json')
+                    convert = new groovy.json.JsonSlurper().parseText(data)
+                    in_name = convert.NAME
+                    in_age = convert.AGE
                 }
                 echo 'Start Trigger to send name and age to slave'
                 build job: 'slave_homework', parameters: [string(name: 'NAME', value: ${in_name}), string(name: 'Ages', value: ${in_age})]
