@@ -20,7 +20,7 @@ pipeline {
                     def in_age = convert.AGE
                 }
                 echo 'Start Trigger to send name and age to slave'
-                build job: 'slave_homework', parameters: [string(name: 'NAME', value: in_name), string(name: 'Ages', value: in_age)]
+                build job: 'slave_homework', parameters: [string(name: 'NAME', value: ${in_name}), string(name: 'Ages', value: ${in_age})]
             }
         }
     }
