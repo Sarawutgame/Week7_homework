@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         
-        stage('Welcome to master1'){
+        stage('Welcome to master homework'){
             steps{
                 echo 'Start Program HomeWork'
             }
@@ -11,24 +11,16 @@ pipeline {
 
         
 
-        stage('Tigger the Slave Jobs') {
+        stage('Tigger the Slave Homework Jobs') {
             steps {
                 script {
                     def data = readFile(file: 'Data.json')
                     def convert = new groovy.json.JsonSlurper().parseText(data)
-                    println(convert.getClass())
                     println(convert.NAME)
                     println(convert.AGE)
-                    
-                    // println(data.NAME)
-
-                    // def dataname = data.get("NAME")
-                    // def dataage = data.get("AGE")
-                    // println(dataname)
-                    // println(dataage)
                 }
-                // echo 'Start Trigger to send name and age to slave'
-                // build job: 'slave_homework', parameters: [string(name: 'NAME', value: dataline.get(0)), string(name: 'Ages', value: dataline.get(1))]
+                echo 'Start Trigger to send name and age to slave'
+                build job: 'slave_homework', parameters: [string(name: 'NAME', value: convert.NAME), string(name: 'Ages', value: convert.AGE)]
             }
         }
     }
