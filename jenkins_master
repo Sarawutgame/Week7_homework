@@ -15,10 +15,8 @@ pipeline {
             steps {
                 script {
                     def data = readFile(file: 'Data.json')
-                    
-                //    def dataline = data.readLines()
                     def convert = new groovy.json.JsonSlurper().parseText(data)
-                    println(data.getClass())
+                    println(convert.getClass())
                     println(convert)
                     // println(data.NAME)
 
