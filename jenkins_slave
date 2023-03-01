@@ -1,2 +1,16 @@
 # your Home work
-TEST ADD 
+pipeline {
+    agent any
+    parameters {
+        string(name: 'NAME', defaultValue: 'Game', description: 'Enter your name')
+        choice(name: 'Ages', defaultValue: '0', description: 'Enter Your ages')
+    }
+    stages {
+        stage('Example') {
+            steps {
+                echo "Hello from Slave ${params.NAME} of ${params.CITY}"
+                
+            }
+        }
+    }
+}
