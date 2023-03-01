@@ -16,11 +16,11 @@ pipeline {
                 script {
                     def data = readFile(file: 'Data.json')
                     def convert = new groovy.json.JsonSlurper().parseText(data)
-                    println(convert.NAME)
-                    println(convert.AGE)
+                    def in_name = convert.NAME
+                    def in_age = convert.AGE
                 }
                 echo 'Start Trigger to send name and age to slave'
-                build job: 'slave_homework', parameters: [string(name: 'NAME', value: convert.NAME), string(name: 'Ages', value: convert.AGE)]
+                build job: 'slave_homework', parameters: [string(name: 'NAME', value: in_name), string(name: 'Ages', value: in_age)]
             }
         }
     }
