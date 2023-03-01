@@ -14,9 +14,11 @@ pipeline {
         stage('Tigger the Slave Jobs') {
             steps {
                 script {
-                    def data = readJSON file: "${env.WORKSPACE}\\Data.json"
+                    def data = readFile(file: 'Data.json')
+                    
                 //    def dataline = data.readLines()
-                    println(data)
+                    println(data.getClass())
+                    println(data.NAME)
 
                     // def dataname = data.get("NAME")
                     // def dataage = data.get("AGE")
