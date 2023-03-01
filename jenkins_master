@@ -17,8 +17,10 @@ pipeline {
                     def data = readFile(file: 'Data.json')
                     
                 //    def dataline = data.readLines()
+                    def convert = new groovy.json.JsonSlurper().parseText(data)
                     println(data.getClass())
-                    println(data.NAME)
+                    println(convert)
+                    // println(data.NAME)
 
                     // def dataname = data.get("NAME")
                     // def dataage = data.get("AGE")
